@@ -134,7 +134,7 @@ local whitelisted = {
 	}
 }
 pcall(function()
-	whitelisted = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/whitelists/main/whitelist2.json", true))
+	whitelisted = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/whitelists/main/whitelist2.json", true))
 end)
 
 local function BindToRenderStep(name, num, func)
@@ -1865,7 +1865,7 @@ runcode(function()
 					framebutton1.Parent = frame
 					framebutton1.MouseButton1Click:connect(function()
 						spawn(function()
-							setclipboard("https://github.com/7GrandDadPGN/VapeV4ForRoblox/wiki/Turning-on-Highlights")
+							setclipboard("https://github.com/Roblox-Thot/VapeV4ForRoblox/wiki/Turning-on-Highlights")
 							framebutton1.Text = "Copied to clipboard!"
 							task.wait(3)
 							framebutton1.Text = "Copy Steps to Clipboard"
