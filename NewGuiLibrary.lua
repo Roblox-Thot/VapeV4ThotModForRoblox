@@ -49,7 +49,7 @@ if shared.VapeExecuted then
 			end
 			return readfile("vape/"..scripturl)
 		else
-			local res = game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/"..scripturl, true)
+			local res = game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main//"..scripturl, true)
 			assert(res ~= "404: Not Found", "File not found")
 			return res
 		end
@@ -142,7 +142,7 @@ if shared.VapeExecuted then
 				textlabel:Remove()
 			end)
 			local req = requestfunc({
-				Url = "https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/"..path:gsub("vape/assets", "assets"),
+				Url = "https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main//"..path:gsub("vape/assets", "assets"),
 				Method = "GET"
 			})
 			writefile(path, req.Body)
