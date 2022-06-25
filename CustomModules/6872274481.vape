@@ -2225,6 +2225,18 @@ runcode(function()
 	AutoHotbarList = CreateAutoHotbarGUI(AutoHotbar["Children"], {
 		["Name"] = "lol"
 	})
+
+	FirstPersonMode = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "First person",
+		["Function"] = function(callback) 
+			if callback then
+				game:GetService("Players").LocalPlayer.CameraMode = "LockFirstPerson"
+			else
+				game:GetService("Players").LocalPlayer.CameraMode = "Classic"
+			end
+		end,
+		["HoverText"] = "Forces first person"
+	})
 end)
 
 GuiLibrary["RemoveObject"]("SilentAimOptionsButton")
