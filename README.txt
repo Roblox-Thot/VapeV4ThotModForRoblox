@@ -2,3 +2,4 @@
 
 Changes:
 Addes FPS toggle 
+Removes vxpe.xyz from toxic as it's tagged
