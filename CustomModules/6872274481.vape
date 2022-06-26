@@ -112,9 +112,9 @@ local shalib = loadstring(GetURL("Libraries/sha.lua"))()
 shared.vapeentity = loadstring(GetURL("Libraries/entityHandler.lua"))()
 local entity = shared.vapeentity
 local whitelisted = {
-	players = {=
+	players = {
 	},
-	owners = {=
+	owners = {
 	},
 	chattags = {
 		["55273f4b0931f16c1677680328f2784842114d212498a657a79bb5086b3929c173c5e3ca5b41fa3301b62cccf1b241db68a85e3cd9bbe5545b7a8c6422e7f0d2"] = {
