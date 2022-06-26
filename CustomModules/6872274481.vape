@@ -5876,6 +5876,7 @@ runcode(function()
 		["hack"] = "Scamming",
 		["exploit"] = "Scamming",
 		["cheat"] = "Scamming",
+		["hak"] = "Scamming",
 		["hecker"] = "Scamming",
 		["hacer"] = "Scamming",
 		["report"] = "Bullying",
@@ -5907,6 +5908,8 @@ runcode(function()
 		["download"] = "Offsite Links",
 		["youtube"] = "Offsite Links",
 		["die"] = "Bullying",
+		["kys"] = "Bullying",
+		["kms"] = "Bullying",
 		["lobby"] = "Bullying",
 		["ban"] = "Bullying",
 	}
