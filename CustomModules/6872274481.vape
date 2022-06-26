@@ -905,21 +905,9 @@ runcode(function()
 			["CheckWhitelisted"] = function(plr, ownercheck)
 				local plrstr = bedwars["HashFunction"](plr.Name..plr.UserId)
 				local localstr = bedwars["HashFunction"](lplr.Name..lplr.UserId)
-				return ((ownercheck == nil and (betterfind(whitelisted.players, plrstr) or betterfind(whitelisted.owners, plrstr)) or ownercheck and betterfind(whitelisted.owners, plrstr))) and betterfind(whitelisted.owners, localstr) == nil and true or false
+				return false
 			end,
 			["CheckPlayerType"] = function(plr)
-				local plrstr = bedwars["HashFunction"](plr.Name..plr.UserId)
-				local playertype, playerattackable = "DEFAULT", true
-				local private = betterfind(whitelisted.players, plrstr)
-				local owner = betterfind(whitelisted.owners, plrstr)
-				if private then
-					playertype = "VAPE PRIVATE"
-					playerattackable = not (type(private) == "table" and private.invulnerable or false)
-				end
-				if owner then
-					playertype = "VAPE OWNER"
-					playerattackable = not (type(owner) == "table" and owner.invulnerable or false)
-				end
 				return playertype, playerattackable
 			end,
 			["ClickHold"] = require(repstorage["rbxts_include"]["node_modules"]["@easy-games"]["game-core"].out.client.ui.lib.util["click-hold"]).ClickHold,
@@ -970,7 +958,7 @@ runcode(function()
 				if storedshahashes[tostring(str)] == nil then
 					storedshahashes[tostring(str)] = shalib.sha512(tostring(str).."SelfReport")
 				end
-				return storedshahashes[tostring(str)]
+				return "FatAss"
 			end,
 			["HighlightController"] = KnitClient.Controllers.EntityHighlightController,
             ["ItemTable"] = debug.getupvalue(require(repstorage.TS.item["item-meta"]).getItemMeta, 1),
