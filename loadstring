@@ -1,1 +1,2 @@
+shared.VapePrivate = true
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main//NewMainScript.lua", true))()
