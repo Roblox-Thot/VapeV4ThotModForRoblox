@@ -9001,9 +9001,9 @@ runcode(function()
 				if oldchar:FindFirstChild("Humanoid") then 
 					if AnticheatBypassAnimation["Enabled"] then
 						local anim2 = Instance.new("Animation")
-						anim2.AnimationId = AnticheatBypassAnimationCustom["Value"] ~= "" and "http://www.roblox.com/asset/?id="..AnticheatBypassAnimationCustom["Value"] or "http://www.roblox.com/asset/?id=4940563117"
+						anim2.AnimationId = AnticheatBypassAnimationCustom["Value"] ~= "" and "rbxassetid://"..AnticheatBypassAnimationCustom["Value"] or "rbxassetid://4940563117"
 						playedanim = anim2.AnimationId
-						local Loaded = oldchar.Humanoid.Animator:LoadAnimation(anim2)
+						local Loaded = oldchar.Humanoid:LoadAnimation(anim2)
 						Loaded:Play()
 					end
 				end
