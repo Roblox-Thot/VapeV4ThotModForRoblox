@@ -6267,7 +6267,7 @@ runcode(function()
 					if plr and bedwars["GamePlayerUtil"].getGamePlayer(plr):isSpectator() and AutoToxicFinalKill["Enabled"] then
 						local custommsg = #AutoToxicPhrases2["ObjectList"] > 0 and AutoToxicPhrases2["ObjectList"][math.random(1, #AutoToxicPhrases2["ObjectList"])] or "L <name>"
 						if custommsg == lastsaid then
-							custommsg = #AutoToxicPhrases2["ObjectList"] > 0 and AutoToxicPhrases2["ObjectList"][math.random(1, #AutoToxicPhrases2["ObjectList"])] or "L <name>"
+							custommsg = #AutoToxicPhrases2["ObjectList"] > 0 and AutoToxicPhrases2["ObjectList"][math.random(1, #AutoToxicPhrases2["ObjectList"])] or "L <name> | vxpe.xyz"
 						else
 							lastsaid = custommsg
 						end
@@ -9001,9 +9001,9 @@ runcode(function()
 				if oldchar:FindFirstChild("Humanoid") then 
 					if AnticheatBypassAnimation["Enabled"] then
 						local anim2 = Instance.new("Animation")
-						anim2.AnimationId = AnticheatBypassAnimationCustom["Value"] ~= "" and "rbxassetid://"..AnticheatBypassAnimationCustom["Value"] or "rbxassetid://4940563117"
+						anim2.AnimationId = AnticheatBypassAnimationCustom["Value"] ~= "" and "http://www.roblox.com/asset/?id="..AnticheatBypassAnimationCustom["Value"] or "http://www.roblox.com/asset/?id=4940563117"
 						playedanim = anim2.AnimationId
-						local Loaded = oldchar.Humanoid:LoadAnimation(anim2)
+						local Loaded = oldchar.Humanoid.Animator:LoadAnimation(anim2)
 						Loaded:Play()
 					end
 				end
