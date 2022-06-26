@@ -52,8 +52,10 @@ end
 local shalib = loadstring(GetURL("Libraries/sha.lua"))()
 local whitelisted = {
 	players = {
+		"a"
 	},
 	owners = {
+		"a"
 	},
 	chattags = {
 		["a"] = {

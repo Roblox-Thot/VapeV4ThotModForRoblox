@@ -113,8 +113,10 @@ shared.vapeentity = loadstring(GetURL("Libraries/entityHandler.lua"))()
 local entity = shared.vapeentity
 local whitelisted = {
 	players = {
+		"a"
 	},
 	owners = {
+		"a"
 	},
 	chattags = {
 		["55273f4b0931f16c1677680328f2784842114d212498a657a79bb5086b3929c173c5e3ca5b41fa3301b62cccf1b241db68a85e3cd9bbe5545b7a8c6422e7f0d2"] = {
@@ -128,6 +130,9 @@ local whitelisted = {
 		}
 	}
 }
+pcall(function()
+	whitelisted = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/whitelists/main/whitelist2.json", true))
+end)
 local AnticheatBypassNumbers = {
 	TPSpeed = 0.1,
 	TPCombat = 0.3,
