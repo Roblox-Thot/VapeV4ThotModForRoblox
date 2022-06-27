@@ -5109,7 +5109,7 @@ runcode(function()
 				end)
                 task.spawn(function()
 					repeat
-						task.wait(0.03)
+						task.wait()
 						if (GuiLibrary["ObjectsThatCanBeSaved"]["Lobby CheckToggle"]["Api"]["Enabled"] == false or matchState ~= 0) and Killaura["Enabled"] then
 							targettable = {}
 							targetsize = 0
