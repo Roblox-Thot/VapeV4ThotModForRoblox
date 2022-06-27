@@ -4964,9 +4964,9 @@ runcode(function()
 		if killauratarget["Enabled"] then
 			table.insert(attackedplayers, plr)
 		end
-		if killaurahitdelay > tick() then 
-			return nil
-		end
+		--if killaurahitdelay > tick() then 
+		--	return nil
+		--end
 		local sword = (equipped.Object and (equipped.Object.Name == "frying_pan" or equipped.Object.Name == "baguette") and {tool = equipped.Object} or getSword())
 		local selfrootpos = (oldcloneroot or entity.character.HumanoidRootPart).Position
 		local selfpos = selfrootpos + (killaurarange["Value"] > 14 and (selfrootpos - root.Position).magnitude > 14 and (CFrame.lookAt(selfrootpos, root.Position).lookVector * 4) or Vector3.zero)
@@ -4984,9 +4984,9 @@ runcode(function()
 					["selfPosition"] = hashvec(selfpos)
 				}
 			})
-			if attacksuccess and bedwars["ItemTable"][sword["tool"].Name].sword.respectAttackSpeedOnServer then 
-				killaurahitdelay = tick() -- + bedwars["ItemTable"][sword["tool"].Name].sword.attackSpeed
-			end
+			--if attacksuccess and bedwars["ItemTable"][sword["tool"].Name].sword.respectAttackSpeedOnServer then 
+			--	killaurahitdelay = tick() -- + bedwars["ItemTable"][sword["tool"].Name].sword.attackSpeed
+			--end
 		end
 	end
 
