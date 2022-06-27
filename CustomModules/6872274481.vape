@@ -5038,7 +5038,7 @@ runcode(function()
 											if (not Killaura["Enabled"]) or (not killauranear) then break end
 											killauracurrentanim = game:GetService("TweenService"):Create(cam.Viewmodel.RightHand.RightWrist, TweenInfo.new(v.Time), {C0 = origC0 * v.CFrame})
 											killauracurrentanim:Play()
-											task.wait(v.Time - 0.01)
+											task.wait()
 										end
 										killauraplaying = false
 									end
