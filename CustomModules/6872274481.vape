@@ -3098,6 +3098,7 @@ runcode(function()
             if callback then
                 task.spawn(function()
                     for i, obj in pairs(bedwars["BedTable"]) do
+						task.spawn(function()
                         if entity.isAlive and obj:GetAttribute("Team"..lplr:GetAttribute("Team").."NoBreak") and obj.Parent ~= nil then
                             if (entity.character.HumanoidRootPart.Position - obj.Position).magnitude <= bedprotectorrange["Value"] then
                                 local firstlayerplaced = placelayer(bedprotector1stlayer, obj, {"obsidian", "stone_brick", "plank_oak", getwool()})
@@ -3107,6 +3108,7 @@ runcode(function()
                             end
                             break
                         end
+						end)
                     end
                     BedProtector["ToggleButton"](false)
                 end)
