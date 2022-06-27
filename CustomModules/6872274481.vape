@@ -5033,7 +5033,6 @@ runcode(function()
 										origC0 = cam.Viewmodel.RightHand.RightWrist.C0
 									end
 									if killauraplaying == false then
-										killauraplaying = true
 										for i,v in pairs(anims[killauraanimmethod["Value"]]) do 
 											if (not Killaura["Enabled"]) or (not killauranear) then break end
 											killauracurrentanim = game:GetService("TweenService"):Create(cam.Viewmodel.RightHand.RightWrist, TweenInfo.new(v.Time), {C0 = origC0 * v.CFrame})
