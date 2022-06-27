@@ -4985,7 +4985,7 @@ runcode(function()
 				}
 			})
 			if attacksuccess and bedwars["ItemTable"][sword["tool"].Name].sword.respectAttackSpeedOnServer then 
-				killaurahitdelay = tick() + bedwars["ItemTable"][sword["tool"].Name].sword.attackSpeed
+				killaurahitdelay = tick() -- + bedwars["ItemTable"][sword["tool"].Name].sword.attackSpeed
 			end
 		end
 	end
