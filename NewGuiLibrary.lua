@@ -1,5 +1,5 @@
 if shared.VapeExecuted then
-	local VERSION = "4.08 Thot Mod "..(shared.VapePrivate and " PRIVATE" or "")
+	local VERSION = "4.08 Thot Mod"..(shared.VapePrivate and " PRIVATE" or "")
 	local customdir = (shared.VapePrivate and "vapeModdedPrivate/" or "vapeModded/")
 	local rainbowvalue = 0
 	local cam = game:GetService("Workspace").CurrentCamera
