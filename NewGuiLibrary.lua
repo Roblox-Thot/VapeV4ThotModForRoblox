@@ -1,6 +1,6 @@
 if shared.VapeExecuted then
 	local VERSION = "4.08"..(shared.VapePrivate and " PRIVATE" or "")
-	local customdir = (shared.VapePrivate and "vapeprivate/" or "vapeModded/")
+	local customdir = (shared.VapePrivate and "vapeModdedPrivate/" or "vapeModded/")
 	local rainbowvalue = 0
 	local cam = game:GetService("Workspace").CurrentCamera
 	local getasset = getsynasset or getcustomasset or function(location) return "rbxasset://"..location end
@@ -418,14 +418,14 @@ if shared.VapeExecuted then
 			if delfile then delfile("vapeModded/Profiles/GUIPositions.vapeprofile.txt") end
 		end
 		if shared.VapePrivate then
-			if betterisfile("vapeprivate/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt") == false and betterisfile("vapeModded/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt") then
-				writefile("vapeprivate/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt", readfile("vapeModded/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt"))
+			if betterisfile("vapeModdedPrivate/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt") == false and betterisfile("vapeModded/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt") then
+				writefile("vapeModdedPrivate/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt", readfile("vapeModded/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt"))
 			end
-			if betterisfile("vapeprivate/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt") == false and betterisfile("vapeModded/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt") then
-				writefile("vapeprivate/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt", readfile("vapeModded/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt"))
+			if betterisfile("vapeModdedPrivate/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt") == false and betterisfile("vapeModded/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt") then
+				writefile("vapeModdedPrivate/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt", readfile("vapeModded/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt"))
 			end
-			if betterisfile("vapeprivate/Profiles/"..(api["CurrentProfile"] == "default" and "" or api["CurrentProfile"])..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt") == false and betterisfile("vapeModded/Profiles/"..(api["CurrentProfile"] == "default" and "" or api["CurrentProfile"])..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt") then
-				writefile("vapeprivate/Profiles/"..(api["CurrentProfile"] == "default" and "" or api["CurrentProfile"])..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt", readfile("vapeModded/Profiles/"..(api["CurrentProfile"] == "default" and "" or api["CurrentProfile"])..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt"))
+			if betterisfile("vapeModdedPrivate/Profiles/"..(api["CurrentProfile"] == "default" and "" or api["CurrentProfile"])..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt") == false and betterisfile("vapeModded/Profiles/"..(api["CurrentProfile"] == "default" and "" or api["CurrentProfile"])..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt") then
+				writefile("vapeModdedPrivate/Profiles/"..(api["CurrentProfile"] == "default" and "" or api["CurrentProfile"])..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt", readfile("vapeModded/Profiles/"..(api["CurrentProfile"] == "default" and "" or api["CurrentProfile"])..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt"))
 			end
 		end
 		local success2, result2 = pcall(function()
