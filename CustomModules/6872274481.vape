@@ -5885,6 +5885,7 @@ runcode(function()
 		["lobby"] = "Bullying",
 		["ban"] = "Bullying",
 		["dream"] = "Bullying",
+		["tanqr"] = "Bullying",
 	}
 
 	local reporttableexact = {
