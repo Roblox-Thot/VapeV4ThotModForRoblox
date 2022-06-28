@@ -5316,7 +5316,7 @@ runcode(function()
 	local BowAura = {["Enabled"] = false}
 	local BowAuraRange = {["Value"] = 40}
 	BowAura = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
-        ["Name"] = "BowAura",
+        ["Name"] = "BowAura2",
         ["Function"] = function(callback)
 			if callback then 
 				task.spawn(function()
