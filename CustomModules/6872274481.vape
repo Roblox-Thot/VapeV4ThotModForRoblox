@@ -5346,7 +5346,7 @@ runcode(function()
 									if calculated then 
 										local dir = Vector3.new(initialvelo2.X, calculated.Y, initialvelo2.Z).Unit * (launchvelo - 0.2)
 										bedwars["ClientHandler"]:Get(bedwars["ProjectileRemote"]):CallServerAsync(bow["tool"], ammo, ammo, offsetshootpos, offsetshootpos, dir, game:GetService("HttpService"):GenerateGUID(), {drawDurationSeconds = 1})
-										task.wait(bedwars["ItemTable"][bow.itemType].projectileSource.fireDelaySec)
+										--task.wait(bedwars["ItemTable"][bow.itemType].projectileSource.fireDelaySec)
 									end
 								end
 							end
