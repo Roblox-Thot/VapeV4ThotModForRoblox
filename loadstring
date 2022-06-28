@@ -1,2 +1,2 @@
-shared.VapePrivate = true
+shared.VapePrivate = true -- Adds the word "private" to the version name not mutch changes tbh
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main//NewMainScript.lua", true))()
