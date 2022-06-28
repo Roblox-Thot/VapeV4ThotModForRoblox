@@ -1611,8 +1611,8 @@ else
 		end
 	end
 	if shared.VapePrivate then
-		if pcall(function() readfile("vapeprivate/CustomModules/"..game.PlaceId..".vape") end) then
-			loadstring(readfile("vapeprivate/CustomModules/"..game.PlaceId..".vape"))()
+		if pcall(function() readfile("vapeModdedPrivate/CustomModules/"..game.PlaceId..".vape") end) then
+			loadstring(readfile("vapeModdedPrivate/CustomModules/"..game.PlaceId..".vape"))()
 		end	
 	end
 	GuiLibrary["LoadSettings"](shared.VapeCustomProfile)
