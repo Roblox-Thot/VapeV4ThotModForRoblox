@@ -5872,6 +5872,8 @@ runcode(function()
 		["dream"] = "Bullying",
 		["tanqr"] = "Bullying",
 		["commitnotalive"] = "Bullying",
+		["wizard"] = "Bullying", --New term for hackers don't ask me
+		["wizerd"] = "Bullying", --New term for hackers don't ask me
 		
 		["retard"] = "Swearing",
 
