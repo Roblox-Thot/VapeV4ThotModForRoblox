@@ -14,6 +14,9 @@ Note:
 I HIGHLY don't recommend using my fork as it will be modded more for what I want
 and I will be removing a lot of things that may have been for safety of the accounts
 
+Fun fact:
+In any number field you can put any number EVEN OVER THE MAX.  This is also the case on the normal Vxpe.xyz (wich you should use anyway!)
+
 Changes:
 Added FPS toggle
 Made Bowaura faster at risk of ban
