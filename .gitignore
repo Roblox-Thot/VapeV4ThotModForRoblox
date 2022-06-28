@@ -1,4 +1,3 @@
-
 Profiles/*
 future.lua
 loadstring.lua
@@ -6,3 +5,4 @@ CustomModules/backup.txt
 Profiles/*.*
 VapeV4.lua
 .vscode/*
+*! notes.txt
