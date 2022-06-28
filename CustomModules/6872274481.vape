@@ -130,9 +130,6 @@ local whitelisted = {
 		}
 	}
 }
-pcall(function()
-	whitelisted = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/whitelists/main/whitelist2.json", true))
-end)
 local AnticheatBypassNumbers = {
 	TPSpeed = 0.1,
 	TPCombat = 0.3,
