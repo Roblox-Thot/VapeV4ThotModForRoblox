@@ -7,6 +7,7 @@
  ########::. #######:: ##::. ##:::: ##:::::::. #######::. ######:: ########:
 ........::::.......:::..::::..:::::..:::::::::.......::::......:::........::
 
+Update server: discord.gg/gDA5FzrbkC
 
 (I will try to keep this updated with the root project)
 
