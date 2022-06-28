@@ -6044,7 +6044,7 @@ runcode(function()
 		end
 
 		if (AutoToxicTeam["Enabled"] == false and lplr:GetAttribute("Team") ~= plr:GetAttribute("Team") or AutoToxicTeam["Enabled"]) and (#AutoToxicPhrases5["ObjectList"] > 0 and toxicfindstr(tab["Message"], AutoToxicPhrases5["ObjectList"]) or #AutoToxicPhrases5["ObjectList"] == 0 and (tab["Message"]:lower():find("my gaming chair expired"))) and plr ~= lplr and table.find(ignoredplayers, plr.UserId) == nil and AutoToxic["Enabled"] and AutoToxicRespondHacker["Enabled"] then
-			local msg = custommsg or "I dont care your gaming chair, I care about how you are bad at cheating L "..(plr.DisplayName or plr.Name)
+			local msg = custommsg or "I dont care about your gaming chair, I care about how you are bad at cheating L "..(plr.DisplayName or plr.Name)
 			repstorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, "All")
 			table.insert(ignoredplayers, plr.UserId)
 		end
