@@ -15,7 +15,8 @@ I HIGHLY don't recommend using my fork as it will be modded more for what I want
 and I will be removing a lot of things that may have been for safety of the accounts
 
 Changes:
-Addes FPS toggle 
+Added FPS toggle
+Made Bowaura faster at risk of ban
 Removes vxpe.xyz from auto toxic as it's tagged
 Anticheat Bypass Animation is set to the floss by default
 Change CPS slider to a normal one (So its not random any more)
