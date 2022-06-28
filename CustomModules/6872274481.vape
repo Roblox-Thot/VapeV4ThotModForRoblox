@@ -5874,10 +5874,13 @@ runcode(function()
 		["commitnotalive"] = "Bullying",
 		["wizard"] = "Bullying", --New term for hackers don't ask me
 		["wizerd"] = "Bullying", --New term for hackers don't ask me
+		["wisard"] = "Bullying", --New term for hackers don't ask me
+		["wiserd"] = "Bullying", --New term for hackers don't ask me
 		
 		["retard"] = "Swearing",
 
 		["hack"] = "Scamming",
+		["hock"] = "Scamming",
 		["exploit"] = "Scamming",
 		["cheat"] = "Scamming",
 		["hak"] = "Scamming",
