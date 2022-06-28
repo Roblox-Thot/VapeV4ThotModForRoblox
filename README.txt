@@ -21,3 +21,6 @@ Anticheat Bypass Animation is set to the floss by default
 Change CPS slider to a normal one (So its not random any more)
 Removed "whitelisted" wich makes it so you can't attack some people
 Added reply to someone using the default death msg on Vape/this (I dont care your gaming chair, I care about how you are bad at cheating L NAMEHERE)
+
+To-do/Ideas:
+Add auto friend
