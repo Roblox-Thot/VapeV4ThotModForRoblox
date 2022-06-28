@@ -64,7 +64,7 @@ if isfolder(customdir:gsub("/", "")) == false then
 	makefolder(customdir:gsub("/", ""))
 end
 if isfolder("vapeModded") == false then
-	makefolder("vape")
+	makefolder("vapeModded")
 end
 if not betterisfile("vapeModded/assetsversion.dat") then
 	writefile("vapeModded/assetsversion.dat", "1")
