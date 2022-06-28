@@ -10,6 +10,9 @@
 
 (I will try to keep this updated with the root project)
 
+This also reads and writes to it's own folder so don't worry about fucking up your normal Vape script configs!
+:)
+
 Note:
 I HIGHLY don't recommend using my fork as it will be modded more for what I want
 and I will be removing a lot of things that may have been for safety of the accounts
