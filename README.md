@@ -16,9 +16,11 @@ Update server: https://discord.gg/gDA5FzrbkC
 This also reads and writes to it's **own folder** so don't worry about fucking up your normal Vape script configs!
 :)
 
->Note:
->>I HIGHLY don't recommend using my fork as it will be modded more for what I want
->>and I will be removing a lot of things that may have been for safety of the accounts
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Note:
+>I HIGHLY don't recommend using my fork as it will be modded more for what I want
+>and I will be removing a lot of things that may have been for safety of the accounts
 
 Fun fact:
 > In any number field you can put any number EVEN OVER THE MAX.  This is also the case on the normal Vxpe.xyz (wich you should use anyway!)
@@ -31,6 +33,8 @@ Changes:
 * Change CPS slider to a normal one (So its not random any more)
 * Removed "whitelisted" wich makes it so you can't attack some people
 * Added reply to someone using the default death msg on Vape/this (I dont care your gaming chair, I care about how you are bad at cheating L NAMEHERE)
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 To-do/Ideas:
 * Add auto friend
