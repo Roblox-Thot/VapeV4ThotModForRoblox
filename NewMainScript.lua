@@ -38,7 +38,7 @@ end
 
 local function checkassetversion()
 	local req = requestfunc({
-		Url = "https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main//assetsversion.dat",
+		Url = "https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main/assetsversion.dat",
 		Method = "GET"
 	})
 	if req.StatusCode == 200 then
@@ -105,7 +105,7 @@ local checkpublicreponum = 0
 local checkpublicrepo
 checkpublicrepo = function(id)
 	local suc, req = pcall(function() return requestfunc({
-		Url = "https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main//CustomModules/"..id..".vape",
+		Url = "https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main/CustomModules/"..id..".vape",
 		Method = "GET"
 	}) end)
 	if not suc then
@@ -150,7 +150,7 @@ local function getcustomassetfunc(path)
 			textlabel:Remove()
 		end)
 		local req = requestfunc({
-			Url = "https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main//"..path:gsub("vapeModded/assets", "assets"),
+			Url = "https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main/"..path:gsub("vapeModded/assets", "assets"),
 			Method = "GET"
 		})
 		writefile(path, req.Body)
@@ -591,7 +591,7 @@ OnlineProfilesButton.MouseButton1Click:connect(function()
 	if profilesloaded == false then
 		local onlineprofiles = {}
 		local success, result = pcall(function()
-			return game:GetService("HttpService"):JSONDecode((shared.VapeDeveloper and readfile("vapeModded/OnlineProfiles.vapeonline") or game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main//OnlineProfiles.vapeonline", true)))
+			return game:GetService("HttpService"):JSONDecode((shared.VapeDeveloper and readfile("vapeModded/OnlineProfiles.vapeonline") or game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main/OnlineProfiles.vapeonline", true)))
 		end)
 		onlineprofiles = (success and result or {})
 		for i2,v2 in pairs(onlineprofiles) do
@@ -646,7 +646,7 @@ OnlineProfilesButton.MouseButton1Click:connect(function()
 					profiledownload.BackgroundColor3 = Color3.fromRGB(31, 30, 31)
 				end)
 				profiledownload.MouseButton1Click:connect(function()
-					writefile(customdir.."Profiles/"..v2["ProfileName"]..tostring(game.PlaceId)..".vapeprofile.txt", (shared.VapeDeveloper and readfile("vapeModded/OnlineProfiles/"..v2["OnlineProfileName"]) or game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main//OnlineProfiles/"..v2["OnlineProfileName"], true)))
+					writefile(customdir.."Profiles/"..v2["ProfileName"]..tostring(game.PlaceId)..".vapeprofile.txt", (shared.VapeDeveloper and readfile("vapeModded/OnlineProfiles/"..v2["OnlineProfileName"]) or game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main/OnlineProfiles/"..v2["OnlineProfileName"], true)))
 					GuiLibrary["Profiles"][v2["ProfileName"]] = {["Keybind"] = "", ["Selected"] = false}
 					local profiles = {}
 					for i,v in pairs(GuiLibrary["Profiles"]) do 
@@ -1447,7 +1447,7 @@ local GUIbind = GUI.CreateGUIBind()
 
 local teleportfunc = game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started and not shared.VapeIndependent then
-		local teleportstr = 'shared.VapeSwitchServers = true if shared.VapeDeveloper then loadstring(readfile("vapeModded/NewMainScript.lua"))() else loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main//NewMainScript.lua", true))() end'
+		local teleportstr = 'shared.VapeSwitchServers = true if shared.VapeDeveloper then loadstring(readfile("vapeModded/NewMainScript.lua"))() else loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main/NewMainScript.lua", true))() end'
 		if shared.VapeDeveloper then
 			teleportstr = 'shared.VapeDeveloper = true '..teleportstr
 		end
