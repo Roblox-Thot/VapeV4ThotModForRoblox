@@ -25,3 +25,4 @@ Added reply to someone using the default death msg on Vape/this (I dont care you
 
 To-do/Ideas:
 Add auto friend
+Try to add platform walk (starts of SkyWars)
