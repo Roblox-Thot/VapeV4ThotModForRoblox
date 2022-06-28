@@ -3465,7 +3465,7 @@ freecamspeed = Freecam.CreateSlider({
 	["Default"] = 75
 })
 
-local Panic = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
+--[[local Panic = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
 	["Name"] = "Panic", 
 	["Function"] = function(callback)
 		if callback then
@@ -3478,7 +3478,7 @@ local Panic = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].Create
 			end
 		end
 	end
-}) 
+})]]--
 
 local FPS = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
 	["Name"] = "Force FPS", 
