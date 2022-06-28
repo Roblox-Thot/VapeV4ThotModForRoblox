@@ -5884,6 +5884,7 @@ runcode(function()
 		["kms"] = "Bullying",
 		["lobby"] = "Bullying",
 		["ban"] = "Bullying",
+		["dream"] = "Bullying",
 	}
 
 	local reporttableexact = {
@@ -9533,7 +9534,7 @@ runcode(function()
 	local arrowdodgeconnection
 	local arrowdodgedata
 	
---[[	AnticheatBypassArrowDodge = AnticheatBypass.CreateToggle({
+	AnticheatBypassArrowDodge = AnticheatBypass.CreateToggle({
 		["Name"] = "Arrow Dodge",
 		["Function"] = function(callback)
 			if callback then
@@ -9568,7 +9569,7 @@ runcode(function()
 		end,
 		["Default"] = true,
 		["HoverText"] = "Dodge arrows (tanqr moment)"
-	})]]
+	})
 	AnticheatBypassAutoConfig = AnticheatBypass.CreateToggle({
 		["Name"] = "Auto Config",
 		["Function"] = function() end,
