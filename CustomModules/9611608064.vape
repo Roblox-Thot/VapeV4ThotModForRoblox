@@ -238,6 +238,7 @@ runcode(function()
 	local Flamework = require(repstorage.rbxts_include.node_modules["@flamework"].core.out.flamework).Flamework
 	repeat task.wait() until Flamework.isInitialized
 	br = {
+		["ActiveItemController"] = require(lplr.PlayerScripts.TS.controllers.global["held-item"]["active-item-controller"]).ActiveItemController,
 		["ClientStoreController"] = Flamework.resolveDependency("client/controllers/global/rodux/rodux-controller@RoduxController"),
 		["CrosshairController"] = Flamework.resolveDependency("client/controllers/global/crosshair/crosshair-controller@CrosshairController"),
 		["ChickynoidClient"] = require(repstorage.rbxts_include.node_modules.chickynoid.src).ChickynoidClient,
@@ -253,7 +254,10 @@ runcode(function()
 		["LobbyClientEvents"] = require(repstorage.rbxts_include.node_modules["@easy-games"].lobby.out.client.events).LobbyClientEvents,
 		["MatchManagerController"] = Flamework.resolveDependency("@easy-games/minigame-engine:client/controllers/match/match-manager-controller@MatchManagerController"),
 		["Networking"] = require(repstorage.TS.networking),
+		["PivotController"] = Flamework.resolveDependency("client/controllers/global/pivot/pivot-controller@PivotController"),
 		["sprintTable"] = Flamework.resolveDependency("client/controllers/global/movement/sprint-controller@SprintController"),
+		["ShiftLockController"] = Flamework.resolveDependency("client/controllers/global/camera/shift-lock-controller@ShiftLockController"),
+		["SprintMoveType"] = require(game.ReplicatedStorage.TS.chickynoid["move-type"]["sprint-move-type"]).SprintMoveType,
 		["BaseGun"] = require(repstorage.TS.gun.guns["base-gun"])
 	}
 	RunLoops:BindToHeartbeat("PositionUpdater", 1, function()
@@ -331,19 +335,23 @@ runcode(function()
 					aimfovframe.Visible = true
 				end
 				SilentAimfunc = debug.getupvalue(br["CrosshairController"].getAimPosition, 5)
+				SilentAimfunc2 = br["ShiftLockController"].isAiming
 				debug.setupvalue(br["CrosshairController"].getAimPosition, 5, {
 					raycast = function(self, origin, direction, args, ...)
 						local plr = GetNearestHumanoidToMouse(true, SilentAimFOV["Value"], true)
 						currentplr = plr
 						if plr then 
-							direction = CFrame.lookAt(origin, plr.Character.Head:GetRenderCFrame().p + (brvelo[plr.Player.Name] * 6)).lookVector * 1000
+							direction = CFrame.lookAt(origin, plr.Character.Head:GetRenderCFrame().p + (brvelo[plr.Player.Name] * 1.4)).lookVector * 1000
 						end
 						return SilentAimfunc:raycast(origin, direction, args, ...)
 					end
 				})
+				br["ShiftLockController"].isAiming = function() return true end
 			else
 				debug.setupvalue(br["CrosshairController"].getAimPosition, 5, SilentAimfunc)
+				br["ShiftLockController"].isAiming = SilentAimfunc2
 				SilentAimfunc = nil
+				SilentAimfunc2 = nil
 				if aimfovframe then
 					aimfovframe.Visible = false
 				end
@@ -1656,20 +1664,34 @@ runcode(function()
 	local function getHealingItem()
 		local inv = br["InventoryController"]:getPlayerInventory()
 		inv = inv and inv.groups.default or {}
+		local healingitems = {}
 		for i2,v2 in pairs(inv) do 
 			if v2.item and v2.item.type ~= "" and br["ItemTable"][v2.item.type].bandage then 
-				return v2.item.type, br["ItemTable"][v2.item.type].bandage.healAmount
+				table.insert(healingitems, {type = v2.item.type, amount = br["ItemTable"][v2.item.type].bandage.healAmount})
 			end
+		end
+		if #healingitems > 0 then 
+			table.sort(healingitems, function(a, b) return a.amount < b.amount end)
+			return healingitems[1].type, healingitems[1].amount
+		else
+			return nil
 		end
 	end
 
 	local function getShieldItem()
 		local inv = br["InventoryController"]:getPlayerInventory()
 		inv = inv and inv.groups.default or {}
+		local healingitems = {}
 		for i2,v2 in pairs(inv) do 
 			if v2.item and v2.item.type ~= "" and br["ItemTable"][v2.item.type].shield then 
-				return v2.item.type, br["ItemTable"][v2.item.type].shield.shieldAmount
+				table.insert(healingitems, {type = v2.item.type, amount = br["ItemTable"][v2.item.type].shield.shieldAmount})
 			end
+		end
+		if #healingitems > 0 then 
+			table.sort(healingitems, function(a, b) return a.amount < b.amount end)
+			return healingitems[1].type, healingitems[1].amount
+		else
+			return nil
 		end
 	end
 
@@ -1688,18 +1710,186 @@ runcode(function()
 						health = health and health.attributes or {health = 100, maxHealth = 100, shield = 100, maxShield = 100}
 						if item then 
 							if health.health <= (health.maxHealth - (healthrequirement >= health.maxHealth and health.maxHealth / 2 or healthrequirement)) then 
+								local oldhealth = health.health
 								br["Networking"].NetEvents.client.consume:fire(item)
-								done = true
+								for i = 1, 10 do 
+									task.wait(0.1)
+									health = br["EntityService"]:getLivingEntityById(lplr:GetAttribute("LivingEntityID"))
+									health = health and health.attributes or {health = 100, maxHealth = 100, shield = 100, maxShield = 100}
+									if oldhealth ~= health.health then 
+										break
+									end
+								end
 							end
 						end
 						if item2 then 
-							if health.shield <= (health.maxShield - (requirement > health.maxShield and 0 or requirement)) then 
+							if health.shield <= (health.maxShield - (requirement >= health.maxShield and health.maxShield / 2 or requirement)) then 
+								local oldhealth = health.shield
 								br["Networking"].NetEvents.client.consume:fire(item2)
-								done = true
+								for i = 1, 10 do 
+									task.wait(0.1)
+									health = br["EntityService"]:getLivingEntityById(lplr:GetAttribute("LivingEntityID"))
+									health = health and health.attributes or {health = 100, maxHealth = 100, shield = 100, maxShield = 100}
+									if oldhealth ~= health.shield then 
+										break
+									end
+								end
 							end
 						end
-						if done then task.wait(.05) end
 					until not AutoHeal["Enabled"]
+				end)
+			end
+		end
+	})
+end)
+
+runcode(function()
+	local SpinBot = {["Enabled"] = false}
+	local oldspinfunc
+	SpinBot = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "SpinBot",
+		["Function"] = function(callback)
+			if callback then
+				if getconnections then 
+					for i,v in pairs(getconnections(game:GetService("RunService").Heartbeat)) do 
+						if v.Function then 
+							local const = debug.getconstants(v.Function)
+							if const[1] == "CurrentCamera" and const[3] == "CFrame" and const[5] == "Y" then 
+								oldspinfunc = v.Function
+								break
+							end
+						end
+					end
+					if oldspinfunc then 
+						task.spawn(function()
+							repeat
+								task.wait(.2)
+								if not SpinBot["Enabled"] then break end
+								debug.setupvalue(oldspinfunc, 1, {CurrentCamera = {CFrame = {LookVector = Vector3.new(0, -1, 0)}}})
+								task.wait(.2)
+								if not SpinBot["Enabled"] then break end
+								debug.setupvalue(oldspinfunc, 1, {CurrentCamera = {CFrame = {LookVector = Vector3.new(0, 1, 0)}}})
+							until (not SpinBot["Enabled"])
+						end)
+					end
+				else
+					createwarning("SpinBot", "no getconnections\nget a better exploit loser", 10)
+					SpinBot["ToggleButton"](false)
+				end
+			else
+				if oldspinfunc then 
+					debug.setupvalue(oldspinfunc, 1, workspace)
+					oldspinfunc = nil
+				end
+			end
+		end
+	})
+end)
+
+runcode(function()
+	local AutoRevive = {["Enabled"] = false}
+	local revivetick = tick()
+	local reviving
+	local heallabel = Instance.new("TextLabel")
+	heallabel.TextSize = 20
+	heallabel.Font = Enum.Font.SourceSans
+	heallabel.TextColor3 = Color3.new(1, 0.1, 0.1)
+	heallabel.TextStrokeTransparency = 0
+	heallabel.TextStrokeColor3 = Color3.new()
+	heallabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+	heallabel.Text = ""
+	heallabel.Parent = GuiLibrary["MainGui"]
+	AutoRevive = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "AutoRevive",
+		["Function"] = function(callback)
+			if callback then
+				task.spawn(function()
+					repeat
+						task.wait()
+						local plr = GetNearestHumanoidToPosition(true, 15)
+						heallabel.Visible = false
+						if plr then 
+							local royaleentity = getBattleRoyaleEntity(plr.Player)
+							if royaleentity and royaleentity:GetAttribute("downed") then
+								if reviving ~= plr.Player then 
+									reviving = plr.Player
+									revivetick = tick() + 6
+									heallabel.Text = "Healing: "..(plr.Player.DisplayName or plr.Player.Name).." in 6"
+									br["Networking"].NetEvents.client.reviveStarted:fire(plr.Player.UserId)
+								else
+									heallabel.Visible = true
+									heallabel.Text = "Healing: "..(plr.Player.DisplayName or plr.Player.Name).." in "..math.floor((revivetick - tick()) * 10) / 10
+									if revivetick <= tick() then 
+										heallabel.Text = "Healed: "..(plr.Player.DisplayName or plr.Player.Name)
+										br["Networking"].NetEvents.client.revive(br["EntityService"]:getLivingEntityByUserId(plr.Player.UserId):getId())
+									end
+								end
+							end
+						else
+							if reviving then 
+								local royaleentity = getBattleRoyaleEntity(reviving)
+								if royaleentity and royaleentity:GetAttribute("downed") then
+									br["Networking"].NetEvents.client.reviveFailed:fire(reviving.UserId)
+								end
+							end
+							reviving = nil
+						end
+					until (not AutoRevive["Enabled"])
+				end)
+			end
+		end
+	})
+end)
+
+runcode(function()
+	local AutoAirdrop = {["Enabled"] = false}
+	local revivetick = tick()
+	local reviving
+	local heallabel = Instance.new("TextLabel")
+	heallabel.TextSize = 20
+	heallabel.Font = Enum.Font.SourceSans
+	heallabel.TextColor3 = Color3.new(0.1, 1, 0.1)
+	heallabel.TextStrokeTransparency = 0
+	heallabel.TextStrokeColor3 = Color3.new()
+	heallabel.Position = UDim2.new(0.5, 0, 0.5, 20)
+	heallabel.Text = ""
+	heallabel.Parent = GuiLibrary["MainGui"]
+	AutoAirdrop = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "AutoAirdrop",
+		["Function"] = function(callback)
+			if callback then
+				task.spawn(function()
+					repeat
+						task.wait()
+						local localchar = isAlive()
+						if localchar then
+							heallabel.Visible = false
+							local found
+							for i,v in pairs(collectionservice:GetTagged("AirdropPackage")) do 
+								if v.PrimaryPart and (localchar.HumanoidRootPart.Position - v.PrimaryPart.Position).Magnitude <= 12 then 
+									found = v
+									if reviving ~= v then 
+										reviving = v
+										revivetick = tick() + 3
+										heallabel.Text = "Opening Airdrop in 3"
+									else
+										heallabel.Visible = true
+										heallabel.Text = "Opening Airdrop in "..math.floor((revivetick - tick()) * 10) / 10
+										if revivetick <= tick() then 
+											br["Networking"].NetEvents.client.openAirdropPackage(v)
+											heallabel.Text = "Opening Airdrop"
+										end
+									end
+									break
+								end
+							end
+							if not found then 
+								reviving = nil
+							end
+						else
+							reviving = nil
+						end
+					until (not AutoAirdrop["Enabled"])
 				end)
 			end
 		end
