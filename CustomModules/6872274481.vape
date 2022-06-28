@@ -2325,7 +2325,7 @@ runcode(function()
 
 				RunLoops:BindToRenderStep("AutoClicker", 1, function() 
 					if entity.isAlive and autoclickermousedown and autoclickertick <= tick() and isNotHoveringOverGui() and #bedwars["AppController"]:getOpenApps() <= 1 and GuiLibrary["MainGui"].ScaledGui.ClickGui.Visible == false and (GuiLibrary["ObjectsThatCanBeSaved"]["Lobby CheckToggle"]["Api"]["Enabled"] == false or matchState ~= 0) and firstclick == false then
-						autoclickertick = tick() + (1 / autoclickercps["GetRandomValue"]())
+						autoclickertick = tick() + (1 / autoclickercps["Value"])
 						if getEquipped()["Type"] == "sword" and bedwars["KatanaController"].chargingMaid == nil then
 							bedwars["SwordController"]:swingSwordAtMouse()
 						end
@@ -2358,13 +2358,12 @@ runcode(function()
 		end,
 		["HoverText"] = "Hold attack button to automatically click"
 	})
-	autoclickercps = autoclicker.CreateTwoSlider({
+	autoclickercps = autoclicker.CreateSlider({
 		["Name"] = "CPS",
 		["Min"] = 1,
-		["Max"] = 52,
+		["Max"] = 100,
 		["Function"] = function(val) end,
-		["Default"] = 8,
-		["Default2"] = 12
+		["Default"] = 52
 	})
 	autoclickerblocks = autoclicker.CreateToggle({
 		["Name"] = "Place Blocks", 
