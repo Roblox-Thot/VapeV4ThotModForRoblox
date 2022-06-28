@@ -44,10 +44,10 @@ if shared.VapeExecuted then
 
 	local function GetURL(scripturl)
 		if shared.VapeDeveloper then
-			if not betterisfile("vapeModded/"..scripturl) then
-				error("File not found : vape/"..scripturl)
+			if not betterisfile("vapeDev/"..scripturl) then
+				error("File not found : vapeDev/"..scripturl)
 			end
-			return readfile("vapeModded/"..scripturl)
+			return readfile("vapeDev/"..scripturl)
 		else
 			local res = game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main/"..scripturl, true)
 			assert(res ~= "404: Not Found", "File not found")
