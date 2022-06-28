@@ -9,6 +9,8 @@
 +........::::.......:::..::::..:::::..:::::::::.......::::......:::........::-
 ```
 
+# I have yet to test this after changing some things so I'm not sure if it works.
+
 Update server: https://discord.gg/gDA5FzrbkC
 
 >(I will try to keep this updated with the root project)
