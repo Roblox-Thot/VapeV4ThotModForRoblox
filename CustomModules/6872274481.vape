@@ -103,7 +103,7 @@ local clients = {
 }
 local function GetURL(scripturl)
 	if shared.VapeDeveloper then
-		return readfile("vape/"..scripturl)
+		return readfile("vapeDev/"..scripturl)
 	else
 		return game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ForRoblox/main//"..scripturl, true)
 	end
