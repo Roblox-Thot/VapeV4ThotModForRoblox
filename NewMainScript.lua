@@ -63,7 +63,7 @@ end
 if isfolder(customdir:gsub("/", "")) == false then
 	makefolder(customdir:gsub("/", ""))
 end
-if isfolder("vape") == false then
+if isfolder("vapeModded") == false then
 	makefolder("vape")
 end
 if not betterisfile("vapeModded/assetsversion.dat") then
