@@ -6443,7 +6443,7 @@ runcode(function()
 	speedval = speed.CreateSlider({
 		["Name"] = "Speed",
 		["Min"] = 1,
-		["Max"] = 100,
+		["Max"] = 54,
 		["Function"] = function(val) end,
 		["Default"] = 54
 	})
