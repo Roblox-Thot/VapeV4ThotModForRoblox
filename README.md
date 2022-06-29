@@ -38,5 +38,6 @@ Changes:
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 To-do/Ideas:
-* Add auto friend
-* Try to add platform walk (starts of SkyWars)
+[ ] Add auto friend
+[ ] Add name hider (like future)
+[ ] Try to add platform walk (starts of SkyWars)
