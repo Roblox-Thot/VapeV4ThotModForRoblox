@@ -1602,8 +1602,8 @@ if shared.VapeIndependent then
 	return GuiLibrary
 else
 	loadstring(GetURL("AnyGame.vape"))()
-	if betterisfile("vapeModded/CustomModules/"..game.PlaceId..".vape") then
-		loadstring(readfile("vapeModded/CustomModules/"..game.PlaceId..".vape"))()
+	if betterisfile("vapeDev/CustomModules/"..game.PlaceId..".vape") then
+		loadstring(readfile("vapeDev/CustomModules/"..game.PlaceId..".vape"))()
 	else
 		local publicrepo = checkpublicrepo(game.PlaceId)
 		if publicrepo then

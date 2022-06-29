@@ -10433,6 +10433,44 @@ runcode(function()
 	})
 end)
 
+
+
+runcode(function()
+	local PGameWS = {["Enabled"] = false}
+    local speed = {["Value"] = 16}
+    local jpower = {["Value"] = 50}
+	print("[GuiLibrary] PGameWS loaded")
+	PGameWS = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "Pregame WS",
+		["Function"] = function(callback)
+			if callback then
+				lplr.Character:FindFirstChildOfClass('Humanoid').WalkSpeed = speed["Value"]
+				lplr.Character:FindFirstChildOfClass('Humanoid').JumpHeight = jpower["Value"]
+				local notification1 = createwarning("Vape", "Walkspeed and JumpHeight should now be set", 10)
+				
+				PGameWS["ToggleButton"](false)
+			end
+		end,
+        ["HoverText"] = "Sets walk speed untill you turn it off.\nGood for pregame SkyWars."
+	})
+    speed = PGameWS.CreateSlider({
+        ["Name"] = "Walk Speed",
+        ["Function"] = function(val) end,
+        ["Default"] = 16,
+        ["Min"] = 16,
+        ["Max"] = 50,
+        ["HoverText"] = "Walk Speed to set it to"
+    })
+    jpower = PGameWS.CreateSlider({
+        ["Name"] = "Jump power",
+        ["Function"] = function(val) end,
+        ["Default"] = 16,
+        ["Min"] = 16,
+        ["Max"] = 50,
+        ["HoverText"] = "Jump power to set it to"
+    })
+end)
+
 runcode(function()
 	local transformed = false
 	local OldBedwars = {["Enabled"] = false}
