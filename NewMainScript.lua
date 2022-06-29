@@ -1447,7 +1447,7 @@ local GUIbind = GUI.CreateGUIBind()
 
 local teleportfunc = game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started and not shared.VapeIndependent then
-		local teleportstr = 'shared.VapeSwitchServers = true if shared.VapeDeveloper then loadstring(readfile("vapeModded/NewMainScript.lua"))() else loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ThotModForRoblox/main/NewMainScript.lua", true))() end'
+		local teleportstr = 'shared.VapeSwitchServers = true if shared.VapeDeveloper then loadstring(readfile("vapeDev/NewMainScript.lua"))() else loadstring(game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ThotModForRoblox/main/NewMainScript.lua", true))() end'
 		if shared.VapeDeveloper then
 			teleportstr = 'shared.VapeDeveloper = true '..teleportstr
 		end
