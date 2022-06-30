@@ -40,4 +40,5 @@ Changes:
 To-do/Ideas:
 [ ] Add auto friend
 [ ] Add name hider (like future)
+[ ] Add scrolling in FPS mode (change items)
 [ ] Try to add platform walk (starts of SkyWars)
