@@ -1,4 +1,6 @@
-repeat task.wait() until game:IsLoaded() == true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+
+--[[repeat task.wait() until game:IsLoaded() == true
 local injected = true
 local oldrainbow = false
 local customdir = (shared.VapePrivate and "vapeModdedPrivate/" or "vapeModded/")
