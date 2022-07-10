@@ -3,7 +3,7 @@ Notify("Alert","I have disabled Thot Mod. So this will now run normal vape.",5)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
 
-return
+return ""
 
 repeat task.wait() until game:IsLoaded() == true
 local injected = true
