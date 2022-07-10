@@ -1,6 +1,11 @@
+loadstring(game:HttpGet("https://gist.github.com/Roblox-Thot/cc8964d978e6e7d60da0ddd72a14fd13/raw/e5dbbeaafaae8c80e7be9e8f401bb5033f53e99c/alert.lua"))()
+Notify("Alert","I have disabled Thot Mod. So this will now run normal vape.",5)
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
 
---[[repeat task.wait() until game:IsLoaded() == true
+return
+
+repeat task.wait() until game:IsLoaded() == true
 local injected = true
 local oldrainbow = false
 local customdir = (shared.VapePrivate and "vapeModdedPrivate/" or "vapeModded/")
@@ -649,7 +654,7 @@ OnlineProfilesButton.MouseButton1Click:connect(function()
 				end)
 				profiledownload.MouseButton1Click:connect(function()
 					writefile(customdir.."Profiles/"..v2["ProfileName"]..tostring(game.PlaceId)..".vapeprofile.txt", (shared.VapeDeveloper and readfile("vapeModded/OnlineProfiles/"..v2["OnlineProfileName"]) or game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ThotModForRoblox/main/OnlineProfiles/"..v2["OnlineProfileName"], true)))
-					GuiLibrary["Profiles"][v2["ProfileName"]] = {["Keybind"] = "", ["Selected"] = false}
+					GuiLibrary["Profiles"][v2["ProfileName"]]-- = {["Keybind"] = "", ["Selected"] = false}
 					local profiles = {}
 					for i,v in pairs(GuiLibrary["Profiles"]) do 
 						table.insert(profiles, i)
