@@ -1,9 +1,9 @@
 loadstring(game:HttpGet("https://gist.github.com/Roblox-Thot/cc8964d978e6e7d60da0ddd72a14fd13/raw/e5dbbeaafaae8c80e7be9e8f401bb5033f53e99c/alert.lua"))()
-Notify("Alert","I have disabled Thot Mod. So this will now run normal vape.",5)
+Notify("Alert","I have disabled Thot Mod due to problems. So this will now run normal vape.",5)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
 
-return ""
+--[[
 
 repeat task.wait() until game:IsLoaded() == true
 local injected = true
@@ -654,7 +654,7 @@ OnlineProfilesButton.MouseButton1Click:connect(function()
 				end)
 				profiledownload.MouseButton1Click:connect(function()
 					writefile(customdir.."Profiles/"..v2["ProfileName"]..tostring(game.PlaceId)..".vapeprofile.txt", (shared.VapeDeveloper and readfile("vapeModded/OnlineProfiles/"..v2["OnlineProfileName"]) or game:HttpGet("https://raw.githubusercontent.com/Roblox-Thot/VapeV4ThotModForRoblox/main/OnlineProfiles/"..v2["OnlineProfileName"], true)))
-					GuiLibrary["Profiles"][v2["ProfileName"]]-- = {["Keybind"] = "", ["Selected"] = false}
+					GuiLibrary["Profiles"][v2["ProfileName"] ] = {["Keybind"] = "", ["Selected"] = false}
 					local profiles = {}
 					for i,v in pairs(GuiLibrary["Profiles"]) do 
 						table.insert(profiles, i)
@@ -871,8 +871,8 @@ local function UpdateHud()
 			table.sort(tableofmodules, function(a, b) return a["Text"]:lower() < b["Text"]:lower() end)
 		else
 			table.sort(tableofmodules, function(a, b) 
-				local textsize1 = (translations[a["Text"]] ~= nil and translations[a["Text"]] or a["Text"])..(a["ExtraText"] and a["ExtraText"]() or "")
-				local textsize2 = (translations[b["Text"]] ~= nil and translations[b["Text"]] or b["Text"])..(b["ExtraText"] and b["ExtraText"]() or "")
+				local textsize1 = (translations[a["Text"] ] ~= nil and translations[a["Text"] ] or a["Text"])..(a["ExtraText"] and a["ExtraText"]() or "")
+				local textsize2 = (translations[b["Text"] ] ~= nil and translations[b["Text"] ] or b["Text"])..(b["ExtraText"] and b["ExtraText"]() or "")
 				textsize1 = game:GetService("TextService"):GetTextSize(textsize1, onetext.TextSize, onetext.Font, Vector2.new(1000000, 1000000))
 				textsize2 = game:GetService("TextService"):GetTextSize(textsize2, onetext.TextSize, onetext.Font, Vector2.new(1000000, 1000000))
 				return textsize1.X > textsize2.X 
@@ -881,12 +881,12 @@ local function UpdateHud()
 		local textlists = {}
 		for i2,v2 in pairs(tableofmodules) do
 			if first then
-				text = (translations[v2["Text"]] ~= nil and translations[v2["Text"]] or v2["Text"])..(v2["ExtraText"]() ~= "" and ":"..v2["ExtraText"]() or "")
+				text = (translations[v2["Text"] ] ~= nil and translations[v2["Text"] ] or v2["Text"])..(v2["ExtraText"]() ~= "" and ":"..v2["ExtraText"]() or "")
 				first = false
 			else
-				text = text..'\n'..(translations[v2["Text"]] ~= nil and translations[v2["Text"]] or v2["Text"])..(v2["ExtraText"]() ~= "" and ":"..v2["ExtraText"]() or "")
+				text = text..'\n'..(translations[v2["Text"] ] ~= nil and translations[v2["Text"] ] or v2["Text"])..(v2["ExtraText"]() ~= "" and ":"..v2["ExtraText"]() or "")
 			end
-			table.insert(textlists, (translations[v2["Text"]] ~= nil and translations[v2["Text"]] or v2["Text"])..(v2["ExtraText"]() ~= "" and ":"..v2["ExtraText"]() or ""))
+			table.insert(textlists, (translations[v2["Text"] ] ~= nil and translations[v2["Text"] ] or v2["Text"])..(v2["ExtraText"]() ~= "" and ":"..v2["ExtraText"]() or ""))
 		end
 		textwithoutthing = text
 		onetext.Text = text
@@ -1652,3 +1652,4 @@ else
 	coroutine.resume(selfdestructsave)
 	shared.VapeFullyLoaded = true
 end
+]]
